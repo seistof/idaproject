@@ -11,16 +11,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      title: this.name,
-    };
-  },
-  head() {
-    return {
-      title: this.title,
-    };
-  },
   props: {
     id: {
       type: Number,

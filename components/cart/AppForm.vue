@@ -31,9 +31,7 @@ export default {
     phone: {
       bind: el => {
         el.oninput = function(e) {
-          if (!e.isTrusted) {
-            return;
-          }
+          if (!e.isTrusted) return;
 
           const x = this.value.replace(/\+.|\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
 
@@ -52,10 +50,11 @@ export default {
   methods: {
     onSubmit(e) {
       console.log('Submit!');
-      const client = {}
-      client.name = e.target[0].value;
-      client.phone = e.target[1].value;
-      client.address = e.target[2].value;
+      const client = {
+        name: e.target[0].value,
+        phone: e.target[1].value,
+        address: e.target[2].value,
+      };
       this.$emit('ordered', client);
     },
   },
@@ -64,42 +63,43 @@ export default {
 <style module lang="scss">
 .wrapper {
   padding-top: 30px;
-}
-.header {
-  font-size: 18px;
-  line-height: 23px;
-  color: $grey;
 
-}
+  .header {
+    font-size: 18px;
+    line-height: 23px;
+    color: $grey;
 
-.form {
-  padding-top: 18px;
-  align-self: flex-end;
-  display: flex;
-  flex-direction: column;
-
-  .item {
-    height: 50px;
-    border-radius: 8px;
-    padding: 0 14px;
-    border: none;
-    margin: 8px 0;
-    font-size: 16px;
-    line-height: 21px;
   }
 
-  input {
-    background: $grey-extra-light;
-    color: $black;
-  }
+  .form {
+    padding-top: 18px;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
 
-  button {
-    background: $black;
-    color: $white;
-    cursor: pointer;
+    .item {
+      height: 50px;
+      border-radius: 8px;
+      padding: 0 14px;
+      border: none;
+      margin: 8px 0;
+      font-size: 16px;
+      line-height: 21px;
+    }
 
-    &:hover {
-      background: $grey;
+    input {
+      background: $grey-extra-light;
+      color: $black;
+    }
+
+    button {
+      background: $black;
+      color: $white;
+      cursor: pointer;
+
+      &:hover {
+        background: $grey;
+      }
     }
   }
 }

@@ -39,6 +39,6 @@ export default {
   build: {},
 
   router: {
-    middleware: 'index'
-  }
+    middleware: 'index',
+  },
 };

@@ -96,7 +96,6 @@ export default {
       display: flex;
       align-items: center;
 
-
       img {
         height: 20px;
         width: 20px;

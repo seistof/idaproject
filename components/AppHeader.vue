@@ -18,10 +18,10 @@ export default {
     },
   },
   computed: {
-    itemsInCart(){
-      return this.$store.getters['cart/cart'].length
-    }
-  }
+    itemsInCart() {
+      return this.$store.getters['cart/cart'].length;
+    },
+  },
 };
 </script>
 

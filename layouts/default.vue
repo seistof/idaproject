@@ -18,12 +18,12 @@ export default {
       isCartOpen: false,
     };
   },
-  components: {Cart, Menu, AppHeader},
   methods: {
     toggleCart(token) {
       this.isCartOpen = token;
     },
   },
+  components: {Cart, Menu, AppHeader},
 };
 </script>
 

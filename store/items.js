@@ -18,6 +18,7 @@ export const actions = {
         item.inCart = false;
         return item;
       });
+
       commit('setItems', items);
     } catch (e) {
       console.log(e);
@@ -30,6 +31,7 @@ export const actions = {
       ...item,
       inCart: !state.items[index].inCart,
     });
+
     commit('setItems', items);
   },
   markInCartItems({commit, state}, cart) {
@@ -39,8 +41,8 @@ export const actions = {
         ...item,
         inCart: ids.includes(item.id),
       };
-
     });
+
     commit('setItems', items);
   },
   removeAddMarks({commit, state}) {

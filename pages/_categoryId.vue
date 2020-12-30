@@ -15,8 +15,7 @@ export default {
       title: this.$store.getters['categories/categories'].filter(
         category => category.id === +this.$route.params.categoryId)[0].name,
       loading: true,
-    }
-      ;
+    };
   },
   head() {
     return {
@@ -32,7 +31,6 @@ export default {
   mounted() {
     this.loading = false;
   },
-  computed: {},
   components: {Catalog, ProductItem},
 };
 </script>

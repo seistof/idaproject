@@ -6,10 +6,7 @@
         <img src="~assets/rating.png" alt="rating">
         <span>{{ item.rating }}</span>
       </div>
-      <div
-        :class="$style.add"
-        @click="toggleAddRemove"
-      >
+      <div :class="$style.add" @click="toggleAddRemove">
         <img src="~assets/add-to-cart.png" alt="add to cart">
         <div v-show="item.inCart" :class="$style.added">&#10003;</div>
       </div>
@@ -150,7 +147,6 @@ export default {
       &:hover {
         opacity: 1;
       }
-
     }
 
     .added {

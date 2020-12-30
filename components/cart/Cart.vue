@@ -39,7 +39,6 @@ export default {
       orderDone: false,
     };
   },
-  components: {CartItem, AppForm},
   methods: {
     hideCart() {
       this.orderDone = false;
@@ -47,7 +46,7 @@ export default {
     },
     handleOrder(client) {
       const cart = this.$store.getters['cart/cart'];
-      const order = {...client, items: cart.map(item => item.id)}
+      const order = {...client, items: cart.map(item => item.id)};
       console.log(order);
       this.orderDone = true;
       this.$store.dispatch('cart/setCart', []);
@@ -69,6 +68,7 @@ export default {
       return this.$store.getters['cart/cart'];
     },
   },
+  components: {CartItem, AppForm},
 };
 </script>
 
@@ -124,7 +124,6 @@ export default {
           color: $grey;
         }
       }
-
     }
 
     .empty {
@@ -182,7 +181,6 @@ export default {
         line-height: 23px;
         color: $grey;
         padding-bottom: 10px;
-
       }
 
       .goods {

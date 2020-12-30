@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.catalog">
     <AppSort @sortBy="sortType = $event"/>
-    <LazyProductItem
+    <ProductItem
       v-for="item in sortedItems"
       :key="item.id"
       :item="item"
@@ -23,7 +23,6 @@ export default {
     items() {
       return this.$store.getters['items/sortedItems'](this.$route.params.categoryId);
     },
-
     sortedItems() {
       if (this.sortType === 'По цене') {
         return this.items.sort((a, b) => b.price - a.price);
@@ -34,8 +33,6 @@ export default {
       return this.items;
     },
   },
-  methods: {},
-
   components: {ProductItem, AppSort},
 };
 </script>

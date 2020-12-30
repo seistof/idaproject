@@ -6,9 +6,7 @@
         <path d="M5 0H0L2.5 2.5L5 0Z" fill="#59606D"/>
       </svg>
     </div>
-    <div
-      :class="$style.dropdown" v-show="isDropdown"
-    >
+    <div :class="$style.dropdown" v-show="isDropdown">
       <div @click="onSelect" :class="$style.option">По цене</div>
       <div @click="onSelect" :class="$style.option">По популярности</div>
     </div>
@@ -38,7 +36,7 @@ export default {
     onSelect(e) {
       this.$emit('sortBy', e.target.textContent);
       this.sortType = e.target.textContent.split(' ')[1];
-      this.toggleDropdown()
+      this.toggleDropdown();
     },
   },
 };
@@ -86,13 +84,5 @@ export default {
       background: $grey-extra-light;
     }
   }
-}
-
-.hide {
-  display: none !important;
-}
-
-.show {
-  display: block !important;
 }
 </style>
