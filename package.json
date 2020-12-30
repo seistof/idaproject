@@ -10,7 +10,14 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "css-loader": "^3.6.0",
     "nuxt": "^2.14.6"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@nuxt/types": "~2.14.0",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "fibers": "^5.0.0",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0"
+  }
 }

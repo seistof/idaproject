@@ -1,73 +1,40 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        idaproject
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div :class="$style.wrapper">
+    <Catalog :items="items"/>
   </div>
 </template>
 
 <script>
-export default {}
+import ProductItem from '~/components/catalog/ProductItem';
+import Catalog from '~/components/catalog/Catalog';
+
+export default {
+  async fetch({store}) {
+    await store.dispatch('items/fetch');
+    await store.dispatch('categories/fetch');
+  },
+  mounted() {
+    if (process.browser) {
+      console.log(123);
+      console.log(window.localStorage);
+    }
+  },
+  computed: {
+    items() {
+      return this.$store.getters['items/items'];
+    },
+  },
+  components: {Catalog, ProductItem},
+};
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+<style module lang="scss">
+.wrapper {
+  margin-left: 248px;
+  margin-top: 163px;
+  margin-bottom: 66px;
+  max-height: calc(100vh - 230px);
+  overflow: auto;
 }
 </style>
+
