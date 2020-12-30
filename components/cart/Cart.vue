@@ -184,7 +184,7 @@ export default {
       }
 
       .goods {
-        min-height: 396px;
+        min-height: 264px;
         max-height: calc(100vh - 666px);
         overflow: auto;
       }
